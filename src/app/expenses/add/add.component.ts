@@ -1,0 +1,24 @@
+import { Component } from '@angular/core';
+import { ExpenseService } from '../../services/expense.service';
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-add-expense',
+  templateUrl: './add.component.html',
+  styleUrls: ['./add.component.css']
+})
+export class AddExpenseComponent {
+  title!: string;
+  amount!: number;
+  category!: string;
+
+  constructor(private expenseService: ExpenseService, private router: Router) {}
+
+  onSubmit() {
+    const expense = { title: this.title, amount: this.amount, category: this.category };
+    this.expenseService.addExpense(expense).subscribe(
+      success => this.router.navigate(['/expenses/list']),
+      error => console.error('Failed to add expense', error)
+    );
+  }
+}

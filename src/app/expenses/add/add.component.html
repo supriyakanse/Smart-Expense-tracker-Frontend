@@ -1,0 +1,22 @@
+<div class="add-expense-container">
+    <h2>Add Expense</h2>
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Title</mat-label>
+        <input matInput [(ngModel)]="title" name="title" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input matInput [(ngModel)]="amount" name="amount" type="number" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <input matInput [(ngModel)]="category" name="category" required>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Add Expense</button>
+    </form>
+  </div>
+  

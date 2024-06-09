@@ -1,0 +1,17 @@
+<div class="budget-container">
+    <h2>Set Budget</h2>
+    <form (ngSubmit)="onSubmit()">
+      <mat-form-field appearance="fill">
+        <mat-label>Category</mat-label>
+        <input matInput [(ngModel)]="category" name="category" required>
+      </mat-form-field>
+  
+      <mat-form-field appearance="fill">
+        <mat-label>Amount</mat-label>
+        <input matInput [(ngModel)]="amount" name="amount" type="number" required>
+      </mat-form-field>
+  
+      <button mat-raised-button color="primary" type="submit">Set Budget</button>
+    </form>
+  </div>
+  
