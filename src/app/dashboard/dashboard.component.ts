@@ -15,10 +15,11 @@ export class DashboardComponent implements OnInit {
   }
 
   loadExpenseChart() {
-    this.expenseService.getExpenses().subscribe(expenses => {
+    this.expenseService.getExpensesCombinedByCategory().subscribe(expenses => {
+   
       const categories = expenses.map(expense => expense.category);
-      const amounts = expenses.map(expense => expense.amount);
-      
+      const amounts = expenses.map(expense => expense.totalAmount); // Adjusted to match the summed totalAmount
+
       Chart.register(...registerables);
 
       new Chart('expenseChart', {
@@ -38,11 +39,11 @@ export class DashboardComponent implements OnInit {
         options: {
           scales: {
             y: {
-              type: 'linear', 
+              beginAtZero: true, // Added to start y-axis from zero
+              type: 'linear'
             }
           }
         }
       });
     });
-  }
-}
+  }}

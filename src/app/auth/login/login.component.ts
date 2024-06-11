@@ -19,6 +19,7 @@ export class LoginComponent {
     (res)=>{
       this.router.navigate(['/dashboard']);
       localStorage.setItem('jwtToken',res.token);
+      localStorage.setItem('user',res.user);
     },
     (err)=>{
 console.log(err);

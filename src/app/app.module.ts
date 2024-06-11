@@ -22,6 +22,8 @@ import { ExpenseService } from './services/expense.service';
 import { BudgetService } from './services/budget.service';
 import { ExpenseEditComponent } from './expenses/edit/edit.component';
 
+import { MatSelectModule } from '@angular/material/select';
+import { MatOptionModule } from '@angular/material/core';
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +46,8 @@ import { ExpenseEditComponent } from './expenses/edit/edit.component';
     MatFormFieldModule,
     MatTableModule,
     ReactiveFormsModule,
-    FormsModule
+    MatSelectModule,
+    MatOptionModule
   ],
   providers: [AuthService, ExpenseService, BudgetService],
   bootstrap: [AppComponent]

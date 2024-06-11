@@ -18,6 +18,12 @@ export class ExpenseService {
     return this.http.get<any[]>(this.apiUrl,{ headers });
   }
 
+  getExpensesCombinedByCategory(): Observable<any[]> {
+    const token = localStorage.getItem('jwtToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any[]>(this.apiUrl+"/sum-by-category",{ headers });
+  }
+
   addExpense(expense: any): Observable<any> {
     const token = localStorage.getItem('jwtToken');
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
