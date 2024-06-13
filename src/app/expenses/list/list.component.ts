@@ -10,9 +10,12 @@ import { Router } from '@angular/router';
 export class ExpenseListComponent implements OnInit {
 
   expenses: any[] = [];
+  filteredExpenses: any[] = [];
   displayedColumns: string[] = ['title', 'amount', 'category', 'actions'];
+  categories: string[] = [];
+  selectedCategory: string = '';
 
-  constructor(private expenseService: ExpenseService,private router:Router) {}
+  constructor(private expenseService: ExpenseService, private router: Router) {}
 
   ngOnInit(): void {
     this.loadExpenses();
@@ -21,6 +24,8 @@ export class ExpenseListComponent implements OnInit {
   loadExpenses() {
     this.expenseService.getExpenses().subscribe(expenses => {
       this.expenses = expenses;
+      this.filteredExpenses = expenses;
+      this.categories = [...new Set(expenses.map(expense => expense.category))];
     });
   }
 
@@ -31,8 +36,19 @@ export class ExpenseListComponent implements OnInit {
     );
   }
 
-  updateExpense(id:any){
-    console.log("Update expense"+id)
-    this.router.navigate(['/expenses/edit/'+id])
+  updateExpense(id: string) {
+    this.router.navigate(['/expenses/edit/' + id]);
+  }
+
+  filterByCategory() {
+    if (this.selectedCategory) {
+      this.filteredExpenses = this.expenses.filter(expense => expense.category === this.selectedCategory);
+    } else {
+      this.filteredExpenses = this.expenses;
+    }
+  }
+
+  redirectToSetBudget() {
+    this.router.navigate(['/budgeting']);
   }
 }

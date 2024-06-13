@@ -16,4 +16,11 @@ export class BudgetService {
     const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
     return this.http.post<any>(this.apiUrl, budget,{headers});
   }
+
+  getBudget(): Observable<any> {
+    
+    const token = localStorage.getItem('jwtToken');
+    const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`);
+    return this.http.get<any>(this.apiUrl,{headers});
+  }
 }

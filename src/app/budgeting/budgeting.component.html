@@ -1,17 +1,20 @@
 <div class="budget-container">
-    <h2>Set Budget</h2>
-    <form (ngSubmit)="onSubmit()">
-      <mat-form-field appearance="fill">
-        <mat-label>Category</mat-label>
-        <input matInput [(ngModel)]="category" name="category" required>
-      </mat-form-field>
+  <h2>Set Budget</h2>
   
-      <mat-form-field appearance="fill">
-        <mat-label>Amount</mat-label>
-        <input matInput [(ngModel)]="amount" name="amount" type="number" required>
-      </mat-form-field>
-  
-      <button mat-raised-button color="primary" type="submit">Set Budget</button>
-    </form>
-  </div>
-  
+  <button mat-raised-button color="primary" routerLink="/expenses/list">Back to expenses</button>
+  <form (ngSubmit)="onSubmit()">
+    <mat-form-field appearance="fill">
+      <mat-label>Category</mat-label>
+      <mat-select [(ngModel)]="selectedCategory" name="category" required>
+        <mat-option *ngFor="let category of categories" [value]="category">{{ category }}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="fill">
+      <mat-label>Amount</mat-label>
+      <input matInput [(ngModel)]="amount" name="amount" type="number" required>
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Set Budget</button>
+  </form>
+</div>

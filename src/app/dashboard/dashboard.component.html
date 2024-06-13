@@ -1,6 +1,14 @@
 <div class="dashboard-container">
   <h2>Dashboard</h2>
+  <button mat-raised-button color="primary" routerLink="/expenses/add">Add expense</button>
+ 
   <div class="chart-container">
-      <canvas id="expenseChart"></canvas>
+    <h3 class="chart-title">Monthly Expenses by Category</h3>
+    <canvas id="expenseChart"></canvas>
+  </div>
+
+  <div class="chart-container">
+    <h3 class="chart-title">Budget vs. Expenses Comparison</h3>
+    <canvas id="budgetVsExpenseChart"></canvas>
   </div>
 </div>

@@ -1,5 +1,8 @@
 <div class="add-expense-container">
   <h2>Add Expense</h2>
+  <button mat-raised-button color="primary" routerLink="/dashboard">Back to dashboard</button>
+ 
+  <button mat-raised-button color="primary" routerLink="/expenses/list">See all expenses</button>
   <form (ngSubmit)="onSubmit()">
     <mat-form-field appearance="fill">
       <mat-label>Title</mat-label>

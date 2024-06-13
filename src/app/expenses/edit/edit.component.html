@@ -1,5 +1,7 @@
 <div class="container">
     <h2>Edit Expense</h2>
+    
+  <button mat-raised-button color="primary" routerLink="/expenses/list">See all expenses</button>
     <form [formGroup]="expenseForm" (ngSubmit)="updateExpense()">
       <div class="form-group">
         <label>Title:</label>
